@@ -11,23 +11,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="./bower_components/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="./bower_components/reveal.js/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./html/bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="./html/bower_components/reveal.js/css/theme/simple.css" id="theme">
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="./bower_components/reveal.js/lib/css/zenburn.css">
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="./html/bower_components/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="./html/custom.css">
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
       if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = './bower_components/reveal.js/css/print/pdf.css';
+        link.href = './html/bower_components/reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
       }
     </script>
     <!--[if lt IE 9]>
-    <script src="./bower_components/reveal.js/lib/js/html5shiv.js"></script>
+    <script src="./html/bower_components/reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- LEAFLET -->
@@ -80,7 +80,7 @@ red
           <section class="cover">
             <h2>Who am I</h2>
           </section>
-          <section class="fullscreen" data-background-iframe="./map.html"></section>
+          <section class="fullscreen" data-background-iframe="./html/map.html"></section>
           <section>
             <p>Johannes Raggam</p>
             <p>Graz / Austria</p>
@@ -277,6 +277,29 @@ Default storage layer for <br /> Pyramid
             <h2>
 Example
             </h2>
+            <ul>
+              <li>
+                <a href="
+./zodbdemo/connect.py
+                " target="_blank">
+Connect
+                </a>
+              </li>
+              <li>
+                <a href="
+./zodbdemo/model.py
+                " target="_blank">
+Model
+                </a>
+              </li>
+              <li>
+                <a href="
+./zodbdemo/test.py
+                " target="_blank">
+Demo
+                </a>
+              </li>
+            </ul>
           </section>
 
         </section>
@@ -330,9 +353,9 @@ https://pypi.python.org/pypi/ZODB
       </div>
     </div>
 
-    <script src="./bower_components/reveal.js/lib/js/head.min.js"></script>
-    <script src="./bower_components/reveal.js/js/reveal.js"></script>
-    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="./init.js"></script>
+    <script src="./html/bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="./html/bower_components/reveal.js/js/reveal.js"></script>
+    <script src="./html/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./html/init.js"></script>
   </body>
 /html>
