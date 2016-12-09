@@ -1,6 +1,6 @@
 Data.fs*
-bin
-lib*
-include
+./bin
+./lib*
+./include
 pip-selfcheck.json
 __pycache__
