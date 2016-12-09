@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>ZODB - The Zope Object DataBase</title>
+
+    <meta name="description" content="Talk @ PyMNtos, 2016-12-08">
+    <meta name="author" content="Johannes Raggam, programmatic">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="./bower_components/reveal.js/css/theme/simple.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="./bower_components/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="custom.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './bower_components/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="./bower_components/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- LEAFLET -->
+  </head>
+
+  <body>
+    <!--
+blue
+#0083BE
+green
+#0BD52D
+yellow
+#CBBE00
+red
+#CB4B0A
+#ED0200
+#0B934A
+#B35725
+#7E231D
+
+        colors:
+        https://kuler.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=4&name=My%20Kuler%20Theme&mode=rgb&rgbvalues=0.7950980392156863,0.21951409859249027,0,0.5686743281526693,0.018820642827770902,0.8350980392156863,0,0.5137254901960784,0.7450980392156863,0.14597107605243181,0.8350980392156863,0.04175490196078435,0.7950980392156863,0.5971390297864673,0.03975490196078435&swatchOrder=0,1,2,3,4
+
+        main slide title
+          <h1></h1>
+
+        slide title
+          <h2></h2>
+
+        subtitle
+          <h3></h3>
+
+        paragraph
+          <p></p>
+
+          <blockquote>
+          </blockquote>
+        -->
+
+    <div class="reveal">
+
+      <div class="slides">
+
+        <section class="cover" data-background="indigo">
+          <h1>ZODB<br/>The Zope<br/>Object DataBase</h1>
+          <h2>Johannes Raggam @ PyMNtos, 2016-12-08</h2>
+        </section>
+
+        <section data-background="green">
+          <section class="cover">
+            <h2>Who am I</h2>
+          </section>
+          <section class="fullscreen" data-background-iframe="./map.html"></section>
+          <section>
+            <p>Johannes Raggam</p>
+            <p>Graz / Austria</p>
+            <p>Plone CMS Core Developer</p>
+            <p><a href="https://github.com/thet" target="_blank">https://github.com/thet</a></p>
+            <p><a href="https://twitter.com/thetetet" target="_blank">https://twitter.com/thetetet</a></p>
+            <p><a href="http://programmatic.pro/" target="_blank">http://programmatic.pro</a></p>
+          </section>
+        </section>
+
+
+        <section data-background="blue">
+          <section class="cover">
+            <h2>What is the ZODB</h2>
+          </section>
+          <section>
+            <h2>
+Zope Object DataBase
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Stores Python objects <br /> (Pickles)
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Transactional
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Fullfills ACID <br /> with Snapshot Isolation
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Multiple clients via ZEO
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Replications via ZRS
+            </h2>
+          </section>
+
+        </section>
+
+        <section data-background="green">
+          <section class="cover">
+            <h2>
+What is it good for?
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Easy to use Python database.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Embedable.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Applications with <br /> complex relationships and <br /> complex data structures.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Scalable <br /> 100GB of data, no problem.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Mature <br /> since 1996.
+            </h2>
+          </section>
+
+        </section>
+
+        <section data-background="blue">
+          <section class="cover">
+            <h2>
+What is it not so good for?
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+High write volume.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Caching not an option.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Need for non-Python standard tools to access data.
+            </h2>
+          </section>
+
+        </section>
+
+        <section data-background="green">
+          <section class="cover">
+            <h2>
+What is it used for?
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Zope Object Publishing Environment <br /> — <br />ZOPE
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Perfect for hierarchical Data <br /> — <br />CMS
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Perfect for CMS <br /> — <br />Plone
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+Default storage layer for <br /> Pyramid
+            </h2>
+          </section>
+
+        </section>
+
+        <section data-background="blue">
+          <section class="cover">
+            <h2>
+Example
+            </h2>
+          </section>
+
+        </section>
+
+        <section data-background="green">
+          <section class="cover">
+            <h2>
+Resources
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+            <ul>
+              <li>
+                <a href="
+http://www.zodb.org/
+                " target="_blank">
+http://www.zodb.org/
+                </a>
+              </li>
+              <li>
+                <a href="
+https://github.com/zopefoundation/ZODB/
+                " target="_blank">
+https://github.com/zopefoundation/ZODB/
+                </a>
+              </li>
+              <li>
+                <a href="
+https://pypi.python.org/pypi/ZODB
+                " target="_blank">
+https://pypi.python.org/pypi/ZODB
+                </a>
+              </li>
+            </ul>
+            </h2>
+          </section>
+
+        </section>
+
+
+        <section data-background="#333333">
+          <h1>Thank You!</h1>
+        </section>
+
+        <section data-background="green">
+          <h1>Questions?</h1>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="./bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="./bower_components/reveal.js/js/reveal.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./init.js"></script>
+  </body>
+/html>
