@@ -6,11 +6,10 @@ pdb.set_trace()
 import connect
 root = connect.connect()
 
-print(getattr(root, 'mytalk', None))
-print(getattr(root, 'alltallks', None))
+if not getattr(root, 'mytalk', False):
+    root.mytalk = 'ZODB @ PyMNtos'
 
-
-root.mytalk = 'ZODB @ PyMNtos'
+root.mytalk
 
 
 # COMMIT THE TRANSACTION
@@ -19,24 +18,19 @@ import transaction
 transaction.commit()
 
 
-# SPECIAL CASE WITH LISTS AND DICTS
+# Persistent objects in a BTree structure
 
-root.othertalk = 'Scraping the Discogs database'
-root.othertalk2 = 'Introduction to Jupyter Notebooks'
+import model
+import BTrees.OOBTree
 
-root.alltallks = [root.mytalk]
+root.talks = BTrees.OOBTree.BTree()
+root.talks['talk1'] = model.Talk(name='David Xu', title='Introduction to Jupyter Notebooks')  # noqa
+root.talks['talk2'] = model.Talk(name='Mark Hubenthal', title='Scraping the Discogs database')  # noqa
+root.talks['talk3'] = model.Talk(name='Johannes Raggam', title='ZODB - The Zope Object Database')  # noqa
+
 
 import transaction
 transaction.commit()
-
-root.alltallks = root.alltallks + [root.othertalk, root.othertalk2]
-
-import transaction
-transaction.commit()
-
-
-
-
 
 
 pass
